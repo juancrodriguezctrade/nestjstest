@@ -1,3 +1,6 @@
+npm install -g @nestjs/cli - instalar cliente nestjs
 nest g --help  - comando que permite mostrar la ayuda.
 nest g module name - comando que te permite crear un modulo
 nest g controller name -comando que te permite crear un controlador
+
+create database task-management postgres
