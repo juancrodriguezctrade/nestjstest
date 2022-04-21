@@ -4,3 +4,125 @@ nest g module name - comando que te permite crear un modulo
 nest g controller name -comando que te permite crear un controlador
 
 create database task-management postgres
+
+GET /_cluster/health
+
+GET /_cat/nodes?v
+
+GET /_cat/indices?v
+
+GET /_cat/indices?v&expand_wildcards
+
+GET /_analyze
+
+GET /zonebystore/_search
+
+PUT /pruebaindex
+{
+  "settings":{
+    "number_of_shards": 1
+    , "number_of_replicas": 1
+  }
+}
+
+POST /pruebaindex/_doc
+{
+  "name": "Prueba index",
+  "store": "Prueba store",
+  "status": "true"
+  
+}
+
+PUT /pruebaindex/_doc/100
+{
+  "name": "Prueba index 2",
+  "store": "Prueba store 2 ",
+  "status": "true"
+  
+}
+
+GET /pruebaindex/_doc/100
+
+POST /pruebaindex/_update/100
+{
+  "doc": {
+    "status": "false"
+  }
+  
+}
+
+POST /pruebaindex/_update/100
+{
+  "script": {
+    "source": "ctx._source.status = 'true'"
+  }
+  
+}
+
+
+POST /pruebaindex/_update/100
+{
+  "script": {
+    "source": "ctx._source.status = params.param",
+    "params":{
+      "param": "false"
+    }
+  }
+  
+}
+
+GET /pruebaindex/_search
+
+GET /pruebaindex/_search
+{
+  "query":{
+    "match":{
+      "status":{
+        "query": "false",
+        "operador": "and"
+      }
+    }
+  }
+}
+
+GET /pruebaindex/_search
+{
+  "query":{
+    "match_phrase":{
+      "status": "false"
+    }
+  }
+}
+
+GET /pruebaindex/_search
+{
+  "query":{
+    "multi_match":{
+      "query": "false",
+      "fields": ["status"]
+    }
+  }
+}
+
+
+
+POST /pruebaindex/_update_by_query
+{
+  "script":{
+    "source": "ctx._source.status = 'false'"
+  },
+  "query":{
+    "match_all": {}
+  }
+}
+
+POST /pruebaindex/_delete_by_query
+{
+  "query":{
+    "match_all": {}
+  }
+}
+
+GET /pruebaindex/_mapping
+
+DELETE /pruebaindex
