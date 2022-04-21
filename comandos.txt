@@ -25,18 +25,51 @@ PUT /pruebaindex
   }
 }
 
-POST /pruebaindex/_doc
+PUT /storeindex
+{
+  "settings":{
+    "number_of_shards": 1
+    , "number_of_replicas": 1
+  }
+}
+
+GET /storeindex/_search
+
+POST /storeindex/_doc
 {
   "name": "Prueba index",
   "store": "Prueba store",
+  "country":"EC",
+  "price": 15,
+  "status": true
+}
+
+PUT /storeindex/_doc/100
+{
+  "name": "Prueba index PERU",
+  "store": "Prueba store PERU",
+  "country":"PE",
+  "price": 15,
   "status": "true"
   
 }
 
+POST /storeindex/_update/q_HzTYABxc1jR2F1bdCN
+{
+  "doc": {
+    
+    "status": "false"
+  }
+  
+}
+
+
 PUT /pruebaindex/_doc/100
 {
-  "name": "Prueba index 2",
-  "store": "Prueba store 2 ",
+  "name": "Prueba index PERU",
+  "store": "Prueba store PERU",
+  "country":"PE",
+  "price": 15,
   "status": "true"
   
 }
