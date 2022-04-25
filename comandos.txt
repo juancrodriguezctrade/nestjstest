@@ -159,3 +159,44 @@ POST /pruebaindex/_delete_by_query
 GET /pruebaindex/_mapping
 
 DELETE /pruebaindex
+
+query MyQuery {
+  listStores{
+    items{
+      id,
+      name
+      channels{
+        items{
+          id,
+          channelId,
+          channel{
+            id,
+            vendorId,
+            accountId
+          },
+          schedules{
+            items{
+              id,
+              storeChannel{
+                id,
+                channelId,
+                catalogueId,
+                accountId
+              }
+      				storeChannelId,
+              dayOfWeek
+              timePeriods{
+                items{
+                  id,
+                  scheduleId,
+                  startTime,
+                  endTime
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
