@@ -200,3 +200,22 @@ query MyQuery {
     }
   }
 }
+
+query MyQuery {
+  listZoneByStores{
+    items{
+      storeId
+      zoneId,
+      zone{
+        id,
+        name,
+        stores{
+          items{
+            storeId,
+            additionalInfo
+          }
+        }
+      }
+    }
+  }
+}
