@@ -219,3 +219,27 @@ query MyQuery {
     }
   }
 }
+
+Para inicializar un proyecto o usar uno ya existente
+• amplify init
+
+Para configurar credenciales de aws (awskey aws_secret)
+• amplify configure
+
+Para compilar y chequear si el schema de graphQL esta bien 
+• amplify api gql-compile
+
+Para chequear que se va a subir o hacer deploy
+• amplify status
+
+Para actualizar los cambios que hizo otro sev y actualizar en mi maquina
+• amplify pull
+
+Para agregar una nueva funcion
+• amplify add function
+
+Para correr una funcion localmente 
+• amplify mock function [function_name] --event src/event.json
+
+Para hacer deploy 
+• amplify push --y
