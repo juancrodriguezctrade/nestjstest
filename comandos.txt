@@ -243,3 +243,41 @@ Para correr una funcion localmente
 
 Para hacer deploy 
 • amplify push --y
+
+{
+  "shippingCosts": {
+    "shippingCostId": "string",
+    "accountId": "string",
+    "additionalInfo": {
+      "key": "value"
+    },
+    "zone": {
+      "id": "string",
+      "name": "string",
+      "status": "string",
+      "polygon": {
+        "type": "polygon",
+        "coordinates": [[[0.0, 0.0]]]
+      }
+    },
+    "store": {
+      "id": "string",
+      "name": "string",
+      "status": "string"
+    },
+    "catalogue": {
+      "id": "string AKA channelID",
+      "name": "string",
+      "status": "string"
+    },
+    "shippingCost": 0.00,
+    "taxes": [
+      {
+        "taxId": "string",
+        "name": "string",
+        "value": 0.00,
+        "active": true
+      }
+    ]
+  }
+}
